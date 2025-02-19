@@ -1,0 +1,12 @@
+NAME="Bai Linux"
+PRETTY_NAME="BaiOS"
+ID=Bai
+ID_LIKE=bai
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://baturax.com/"
+DOCUMENTATION_URL="https://dis.baturax.com"
+SUPPORT_URL="https://sup.baturax.com"
+BUG_REPORT_URL="https://github.com/baturaz"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=linux

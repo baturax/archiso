@@ -1,0 +1,5 @@
+root:x:0:root
+adm:x:4:bai,daemon
+wheel:x:10:bai
+uucp:x:14:bai
+bai:x:1000:
