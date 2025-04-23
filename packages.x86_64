@@ -111,7 +111,7 @@ bat
 eza
 fish
 sddm
-firefox-esr-bin
+firefox
 flameshot
 neovim
 obs-studio
@@ -120,6 +120,7 @@ qt6-wayland
 qt5-base
 qt6-wayland
 jdk-openjdk
+vlc
 curl
 clang
 cpupower
@@ -171,5 +172,3 @@ brightnessctl
 noto-fonts-emoji
 xdg-desktop-portal-gnome
 cheese
-celluloid
-ttf-cascadia-code-nerd
