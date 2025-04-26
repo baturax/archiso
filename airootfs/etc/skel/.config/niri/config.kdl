@@ -1,0 +1,216 @@
+workspace "first"
+workspace "second"
+workspace "third"
+workspace "fourth"
+workspace "fifth"
+
+input {
+    keyboard {
+        xkb {
+	layout "tr"
+        }
+	repeat-delay 300
+	repeat-rate 30
+    }
+
+    touchpad {
+    off
+        tap
+        natural-scroll
+        
+    }
+
+    mouse {
+    }
+    disable-power-key-handling
+    focus-follows-mouse max-scroll-amount="100%"
+}
+
+output "eDP-1" {
+    mode "1920x1080@59.999"
+    scale 1
+    variable-refresh-rate
+    background-color "#000000"
+}
+
+layout {
+    gaps 10
+    center-focused-column "never"
+    always-center-single-column
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+	     proportion 0.9
+        proportion 1.0
+    }
+
+    preset-window-heights { 
+    	proportion 0.33333
+	   proportion 0.5
+   	proportion 0.66667
+   	proportion 1.0
+    }
+    
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+    	width 4
+        active-color "#b4befe"
+        inactive-color "#a6e3a1"
+    }
+
+    border {
+        off
+    }
+
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        // You can also change the shadow color and opacity.
+        color "#11111b"
+    }
+}
+spawn-at-startup "brightnessctl" "set" "100%"
+spawn-at-startup "rfkill" "unblock" "0" "1" "2" "3"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "foot"
+spawn-at-startup "waybar"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
+spawn-at-startup "dunst"
+spawn-at-startup "swaybg" "-i" "/home/bai/Pictures/assets/untitled.jpg" "-m" "stretch"
+screenshot-path "~/Pictures/Screenshot/Screenshot from %Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+
+environment {
+    QT_QPA_PLATFORM "wayland"
+    DISPLAY ":0"
+}
+
+cursor {
+   xcursor-theme "macOS"
+   xcursor-size 22
+}
+
+animations {
+    // off
+
+    slowdown 0.5
+}
+
+// Floating app
+window-rule {
+   match app-id="pinentry-gtk"
+
+   open-floating true
+}
+
+binds {
+
+    Mod+C 		      { spawn "foot"; }
+    Mod+Shift+C		{ spawn "kitty"; }
+
+    Mod+E 		      { spawn "nautilus"; }
+    Mod+D 		      { spawn "fuzzel"; }
+
+    Mod+W		{ spawn "firefox"; }
+    Mod+Shift+W 	{ spawn "chromium"; }
+
+    Super+Alt+L 	{ spawn "swaylock"; }
+    Mod+Period		{ spawn "bemoji" "-t"; }
+	
+    XF86AudioMute		{ spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+    XF86AudioLowerVolume	{ spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-1%"; }
+    XF86AudioRaiseVolume	{ spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+1%"; }
+    XF86AudioMicMute		{ spawn "pactl" "set-source-mute" "0" "toggle"; }
+
+    XF86MonBrightnessDown	{ spawn "brillo" "-U" "5"; }
+    XF86MonBrightnessUp		{ spawn "brillo" "-A" "5"; }
+
+    XF86RFKill	 	{ quit; }
+    Help       		{ spawn "xdg-open" "https://github.com"; }
+    XF86PickupPhone	{ spawn "";}
+    XF86HangupPhone 	{ spawn "";}
+    XF86Calculator 	{ spawn "mate-calc";}
+
+    XF86AudioPlay 	{ spawn "playerctl" "play"; }
+    XF86AudioStop	{ spawn "playerctl" "pause"; }
+    XF86AudioPrev	{ spawn "playerctl" "previous"; }
+    XF86AudioNext	{ spawn "playerctl" "next"; }
+
+
+    Mod+Q { close-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+ 
+    Mod+Shift+WheelScrollDown       { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp         { focus-workspace-up; }
+
+    Mod+WheelScrollDown      { focus-column-right; }
+    Mod+WheelScrollUp        { focus-column-left; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+Tab { focus-workspace-previous; }
+
+    
+    Mod+N	{ consume-or-expel-window-left; }
+    Mod+M	{ consume-or-expel-window-right; }
+
+    Mod+R 		{ switch-preset-column-width; }
+    Mod+Shift+R 	{ switch-preset-window-height; }
+    Mod+Ctrl+R		{ reset-window-height; }
+    Mod+F 		{ maximize-column; }
+    Mod+Shift+F		{ fullscreen-window; }
+
+    Mod+Z { center-column; }
+
+    Mod+KP_Subtract	{ set-column-width "-10%"; }
+    Mod+KP_Add 		{ set-column-width "+10%"; }
+
+    Mod+Shift+KP_Subtract 	{ set-window-height "-10%"; }
+    Mod+Shift+KP_Add 		{ set-window-height "+10%"; }
+
+    Mod+Space       { toggle-window-floating; }
+    Mod+Shift+Space { switch-focus-between-floating-and-tiling; }
+
+    Print 		{ screenshot; }
+    Ctrl+Print 		{ screenshot-screen; }
+    Alt+Print 		{ screenshot-window; }
+
+    Mod+Shift+Q 	{ quit; }
+    Ctrl+Alt+Delete 	{ quit; }
+
+    Mod+Shift+P { power-off-monitors; }
+
+
+}
