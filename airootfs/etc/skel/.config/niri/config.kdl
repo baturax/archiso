@@ -74,6 +74,13 @@ layout {
         color "#11111b"
     }
 }
+
+spawn-at-startup "firefox" "-p"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "macOS"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "11"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Papirus"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "CaskaydiaCove Nerd Font 11"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Qogir-Round-Dark"
 spawn-at-startup "brightnessctl" "set" "100%"
 spawn-at-startup "rfkill" "unblock" "0" "1" "2" "3"
 spawn-at-startup "xwayland-satellite"
