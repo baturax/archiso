@@ -1,0 +1,16 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+LC_ALL=C.UTF-8
+XDG_DATA_HOME=/home/bai/.local/share
+XDG_CONFIG_HOME=/home/bai/.config
+XDG_STATE_HOME=/home/bai/.local/state
+XDG_CACHE_HOME=/home/bai/.cache
+XDG_BIN_HOME=/home/bai/.local/bin
+XDG_DOWNLOAD_DIR=/home/bai/Downloads
+XDG_PICTURES_DIR=/home/bai/Pictures
+XDG_VIDEOS_DIR=/home/bai/Pictures/Videos
+XDG_CONFIG_HOME/git/config
+XDG_CONFIG_HOME/git/credentials
