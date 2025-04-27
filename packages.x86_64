@@ -183,7 +183,6 @@ ttf-cascadia-code-nerd
 papirus-icon-theme
 acpi
 pkg-config
-clang
 mold
 llvm
 libsass
