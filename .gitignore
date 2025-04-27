@@ -1,2 +1,9 @@
 airootfs/etc/skel/Pictures/Screenshot
 airootfs/etc/skel/.mozilla
+airootfs/etc/skel/Pictures/game
+airootfs/etc/skel/.config/obs-studio
+airootfs/etc/skel/.config/YouTube Music
+airootfs/etc/skel/.config/git
+airootfs/etc/skel/.local/share/icons/Papirus
+airootfs/etc/skel/.local/share/icons/macOS
+airootfs/etc/skel/.local/share/themes/Qogir-Round-Dark
